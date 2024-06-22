@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -66,4 +68,34 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Navigation
+    implementation(libs.androidx.navigation.compose)
+
+    //Dagger Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.dagger.compiler) // Dagger compiler
+    ksp(libs.hilt.compiler)   // Hilt compiler
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    //Retrofit
+    implementation (libs.retrofit)
+
+    // OkHttp
+    implementation(libs.okhttp)
+    // Kotlin Serialization
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+
+    // Coil
+    implementation(libs.coil.compose)
+
+    //Coroutine
+    implementation(libs.kotlinx.coroutines.android)
+
+    //ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Gson
+    implementation(libs.converter.gson)
 }
